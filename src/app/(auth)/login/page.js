@@ -5,7 +5,7 @@ import AuthService from "../../../../services/api/AuthService";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/userSlice";
-
+import Cookies from 'js-cookie'
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -17,9 +17,9 @@ const LoginPage = () => {
       const userData = await AuthService.login(values);
 
       if (userData?.token) {
-        localStorage.setItem("authToken", userData.token);
-        localStorage.setItem("user", JSON.stringify(userData.tenant));
-        dispatch(setUser(userData.tenant));
+          Cookies.set("access_token", userData.token, { expires: 1 }); // Expires in 1 day
+          Cookies.set("refresh_token", userData.refreshToken, { expires: 7 }); 
+        dispatch(setUser(userData.user));
         message.success("Login successful!");
 
         router.push("/dashboard");

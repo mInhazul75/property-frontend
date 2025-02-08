@@ -45,48 +45,30 @@ export default function DashboardMenu() {
             color: "#ff8b00",
           }}
         >
-          <Link href="/">UPDATE BUILDER</Link>
+          <Link href="/">Bussniess Automation</Link>
         </div>
       </div>
       <Menu mode="inline" defaultSelectedKeys={["1"]}>
-        <Menu.ItemGroup title="Shortcuts">
+        <Menu.ItemGroup title="Home">
           <Menu.Item key="1" icon={<HomeOutlined />}>
-            <Link href="/dashboard">All Websites</Link>
+            <Link href="/dashboard">Dashboard</Link>
           </Menu.Item>
         </Menu.ItemGroup>
 
         <Menu.Divider />
 
-        <Menu.ItemGroup title="Agency">
-          <Menu.Item key="2" icon={<TeamOutlined />}>
-            Agency Panel
-          </Menu.Item>
-        </Menu.ItemGroup>
-
         <Menu.Divider />
 
-        <Menu.ItemGroup title="Account">
+        <Menu.ItemGroup title="Property and Hotel Mgmt">
           <Menu.Item key="3" icon={<DollarOutlined />}>
-            <Link href="/billing">Billing</Link>
+            <Link href="/property">Property</Link>
           </Menu.Item>
           <Menu.Item key="4" icon={<UserOutlined />}>
-            Affiliate
+            <Link href="/hotels">Hotel</Link>
           </Menu.Item>
         </Menu.ItemGroup>
 
         <Menu.Divider />
-
-        <Menu.ItemGroup title="Help">
-          <Menu.Item key="5" icon={<QuestionCircleOutlined />}>
-            Help Center
-          </Menu.Item>
-          <Menu.Item key="5" icon={<QuestionCircleOutlined />}>
-            What is new
-          </Menu.Item>
-          <Menu.Item key="5" icon={<QuestionCircleOutlined />}>
-            Get Support
-          </Menu.Item>
-        </Menu.ItemGroup>
       </Menu>
     </Sider>
   );

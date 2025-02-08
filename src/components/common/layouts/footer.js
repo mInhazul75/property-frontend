@@ -12,7 +12,7 @@ export default function FooterLayout() {
         color: "#666666",
       }}
     >
-      © 2025 UPDATE PageBuilder. All rights reserved.
+      © 2025 BALTD. All rights reserved.
     </Footer>
   );
 }

@@ -1,5 +1,6 @@
 import axios from "axios";
 const apiBaseUrl = process.env.NEXT_API_URL || "http://localhost:3000";
+import Cookies from "js-cookie";
 const api = axios.create({
   baseURL: apiBaseUrl,
 });
@@ -10,14 +11,12 @@ const authApi = axios.create({
 
 authApi.interceptors.request.use(
   async (config) => {
-    if (typeof localStorage !== "undefined") {
-      const authToken = localStorage.getItem("authToken");
+    const authToken = Cookies.get("access_token"); 
 
-      config.headers = config.headers || {};
+    config.headers = config.headers || {};
 
-      if (authToken) {
-        config.headers.token = `${authToken}`;
-      }
+    if (authToken) {
+      config.headers.token = `${authToken}`;
     }
 
     return config;
